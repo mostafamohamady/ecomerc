@@ -25,7 +25,7 @@ password:new FormControl(null,[Validators.required,Validators.pattern(/^[A-Z][a-
 handelLogin(loginForm:FormGroup){
 
 
-
+  console.log(loginForm)
 
 }
 
