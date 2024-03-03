@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,7 +17,7 @@ export class RegisterComponent {
   }
 
   isLoading:boolean=false;
-
+  apiError:string ='';
 
   registerForm: FormGroup = new FormGroup({
     name: new FormControl(null,[Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
@@ -31,6 +32,7 @@ export class RegisterComponent {
   handleRegister(registerForm: FormGroup) {
 
       this.isLoading=true;
+     
     if(registerForm.valid){
 
       this._AuthService.register(registerForm.value).subscribe({
@@ -41,7 +43,12 @@ export class RegisterComponent {
             this._Router.navigate(['/login'])
           }
         },
-        error:(err)=>console.log(err)
+        error:(err)=>{
+          this.isLoading=false;
+          this.apiError=err.error.message;
+          
+        
+        }
       })
 
       
