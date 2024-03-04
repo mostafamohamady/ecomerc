@@ -13,6 +13,8 @@ export class LoginComponent {
 constructor (private _AuthService:AuthService , private _Router:Router){
   
 }
+isLoading:boolean=false;
+  apiError:string ='';
 
 
 loginForm:FormGroup=new FormGroup({
@@ -24,8 +26,27 @@ password:new FormControl(null,[Validators.required,Validators.pattern(/^[A-Z][a-
 
 handelLogin(loginForm:FormGroup){
 
+  this.isLoading=true;
 
-  console.log(loginForm)
+  if(loginForm.valid){
+    this._AuthService.login(loginForm.value).subscribe({
+      next:(response)=>{
+        if (response.message === 'success'){
+          
+         this.isLoading=false;
+          this._Router.navigate(['/home'])
+        }
+      },
+      error:(err)=>{
+        this.isLoading=false;
+        this.apiError=err.error.message;
+        console.log(err.error.message);
+        
+      
+      }
+    })
+
+  }
 
 }
 

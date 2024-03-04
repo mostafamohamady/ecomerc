@@ -2,6 +2,8 @@
 
     <h4>Login :</h4>
 
+    <div  *ngIf="apiError" class="alert alert-danger"> {{apiError}}</div>
+
     <form  (ngSubmit)="handelLogin(loginForm)" [formGroup]="loginForm">
 
 
@@ -23,13 +25,13 @@
 
 
         <button [disabled]="loginForm.invalid"  type="submit" class="btn btn-info">
-            <i   class="fas fa-spinner fa-spin"></i>
-            <span class="px-2">login</span>          
+            <i   *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+            <span *ngIf="!isLoading" class="px-2">login</span>          
 
         </button>
 
 
-      
+       
 
     </form>
 
