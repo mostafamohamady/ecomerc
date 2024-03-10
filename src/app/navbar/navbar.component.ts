@@ -15,9 +15,13 @@ export class NavbarComponent {
         if (_AuthService.userData.getValue() !== null) {
           this.isLoged = true;
         } else {
-          this.isLoged=false
+          this.isLoged = false;
         }
       },
     });
+  }
+
+  logOut() {
+    this._AuthService.logOut();
   }
 }
