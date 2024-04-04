@@ -9,7 +9,11 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   userData = new BehaviorSubject(null);
-  constructor(private _HttpClient: HttpClient, private _Router: Router) {}
+  constructor(private _HttpClient: HttpClient, private _Router: Router) {
+    if (localStorage.getItem('userToken') !== null) {
+      this.decodedUserData();
+    }
+  }
 
   decodedUserData() {
     let encodedToken = JSON.stringify(localStorage.getItem('userToken'));
