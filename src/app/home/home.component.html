@@ -1,24 +1,26 @@
 <div class="container">
   <div class="row">
     <div *ngFor="let product of products" class="col-md-2">
-      <div class="product  px-2 py-4  mb-2">
-        <img class="w-100" src="{{ product.imageCover }}" alt="" />
-        <span class="text-main fw-bold">{{ product.category.name }}</span>
-        <h2 class="h6 fw-bold">
-          {{ product.title.split(" ").slice(0, 2).join(" ") }}
-        </h2>
-        <div class="d-flex align-items-center justify-content-between">
-          <span class="text-muted fw-bold">{{ product.price }} EGP</span>
+      <div class="product px-2 py-4 mb-2">
+        <a [routerLink]="['/productdetails', product._id]">
+          <img class="w-100" src="{{ product.imageCover }}" alt="" />
+          <span class="text-main fw-bold">{{ product.category.name }}</span>
+          <h2 class="h6 fw-bold">
+            {{ product.title.split(" ").slice(0, 2).join(" ") }}
+          </h2>
+          <div class="d-flex align-items-center justify-content-between">
+            <span class="text-muted fw-bold">{{ product.price }} EGP</span>
 
-          <div>
-            <i class="fas fa-star rating-color"></i>
-            <span class="text-muted fw-bold"
-              >{{ product.ratingsAverage }}
-            </span>
+            <div>
+              <i class="fas fa-star rating-color"></i>
+              <span class="text-muted fw-bold"
+                >{{ product.ratingsAverage }}
+              </span>
+            </div>
           </div>
-        </div>
 
-        <button class="btn bg-main text-white w-100"> + add  </button>
+          <button class="btn bg-main text-white w-100">+ add</button>
+        </a>
       </div>
     </div>
   </div>
