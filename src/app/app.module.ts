@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +16,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
-
 
 @NgModule({
   declarations: [
@@ -37,6 +37,9 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

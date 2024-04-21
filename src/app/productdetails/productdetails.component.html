@@ -1,4 +1,29 @@
 <div class="container">
+  <div class="row py-5 align-items-center">
+    <div class="col-md-4">
+      <img [src]="productDitails?.imageCover" class="w-100" alt="">
 
-  <p>productdetails works! xxxxxx</p>
+
+
+
+    </div>
+    <div class="col-md-8">
+      <h2 class="h5 fw-boder mb-2">{{ productDitails?.title }}</h2>
+      <p class="text-muted py-3 h5">{{ productDitails?.description }}</p>
+
+
+      <div class="d-flex align-items-center justify-content-between">
+        <span class="text-muted fw-bold">{{ productDitails?.price }} EGP</span>
+
+        <div class="mb-5"> 
+          <i class="fas fa-star rating-color"></i>
+          <span class="text-muted fw-bold"
+            >{{ productDitails?.ratingsAverage }}
+          </span>
+        </div>
+      </div>
+
+      <button class="btn bg-main text-white w-100">+ add</button>
+    </div>
+  </div>
 </div>

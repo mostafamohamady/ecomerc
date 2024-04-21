@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from '../products.service';
+import { SwiperOptions } from 'swiper';
 
 @Component({
   selector: 'app-productdetails',
@@ -7,12 +9,29 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./productdetails.component.scss'],
 })
 export class ProductdetailsComponent implements OnInit {
-  constructor(private _ActivatedRoute: ActivatedRoute) {}
+  constructor(
+    private _ActivatedRoute: ActivatedRoute,
+    private _ProductsService: ProductsService
+  ) {}
 
+  productDitails: any;
+  productId: any;
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe((params) => {
-      console.log(params.get('id'));
+      this.productId = params.get('id');
+    });
+    this._ProductsService.getProductDetails(this.productId).subscribe({
+      next: (response) => (this.productDitails = response.data),
     });
   }
-}
   
+
+  config: SwiperOptions = {
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    spaceBetween: 30
+  };
+}
