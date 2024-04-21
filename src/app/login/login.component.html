@@ -12,7 +12,7 @@
         <input formControlName="email" type="email" id="email" class=" form-control mb-2">
         <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched  " class="alert alert-danger">
             <p *ngIf="loginForm.get('email')?.getError('required') " class="mb-0"> Email Required</p>
-            <p *ngIf="loginForm.get('email')?.getError('email') " class="mb-0">Email invalid For Example test123@gmial.com</p>
+            <p *ngIf="loginForm.get('email')?.getError('email') " class="mb-0">Email invalid For Example test123&#64;gmial.com</p>
 
         </div>
         <label for="password">Password</label>

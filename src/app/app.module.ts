@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +16,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -37,9 +40,10 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
-    
-    
+    BrowserAnimationsModule,
+    CarouselModule,
+    CommonModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

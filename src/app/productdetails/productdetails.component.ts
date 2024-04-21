@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products.service';
-import { SwiperOptions } from 'swiper';
+
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-productdetails',
@@ -24,14 +25,20 @@ export class ProductdetailsComponent implements OnInit {
       next: (response) => (this.productDitails = response.data),
     });
   }
-  
 
-  config: SwiperOptions = {
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1,
+      },
     },
-    spaceBetween: 30
+    nav: true,
   };
 }
