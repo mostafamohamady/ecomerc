@@ -12,7 +12,7 @@ import { authGuard } from './auth.guard';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'register', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', canActivate: [authGuard], component: HomeComponent },

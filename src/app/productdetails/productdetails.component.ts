@@ -21,6 +21,7 @@ export class ProductdetailsComponent implements OnInit {
     this._ActivatedRoute.paramMap.subscribe((params) => {
       this.productId = params.get('id');
     });
+
     this._ProductsService.getProductDetails(this.productId).subscribe({
       next: (response) => (this.productDitails = response.data),
     });
@@ -28,10 +29,10 @@ export class ProductdetailsComponent implements OnInit {
 
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
+    mouseDrag: true,
     touchDrag: false,
     pullDrag: false,
-    dots: false,
+    dots: true,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
@@ -39,6 +40,11 @@ export class ProductdetailsComponent implements OnInit {
         items: 1,
       },
     },
-    nav: true,
+    nav: false,
+    autoplay: true,
+    autoplayHoverPause: true,
+    
+    
+   
   };
 }

@@ -12,7 +12,9 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent {
   constructor(private _AuthService:AuthService , private _Router:Router){
-
+    if(localStorage.getItem('userToken')!==null){
+      this._Router.navigate(['/home']);
+    }
 
   }
 

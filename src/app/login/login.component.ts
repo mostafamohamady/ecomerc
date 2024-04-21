@@ -9,7 +9,12 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private _AuthService: AuthService, private _Router: Router) {}
+  constructor(private _AuthService: AuthService, private _Router: Router) {
+    if(localStorage.getItem('userToken')!==null){
+      this._Router.navigate(['/home']);
+    }
+
+  }
   isLoading: boolean = false;
   apiError: string = '';
 
