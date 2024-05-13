@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { SearchPipe } from './search.pipe';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     CarouselModule,
     CommonModule,
     CarouselModule,
+    FormsModule,
+    SearchPipe
   ],
   providers: [],
   bootstrap: [AppComponent],

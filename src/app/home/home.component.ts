@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,19 +11,16 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class HomeComponent implements OnInit {
   products: any[] = [];
+  userWord: string = '';
   constructor(private _ProductsService: ProductsService) {}
 
   ngOnInit(): void {
     this._ProductsService.getProduct().subscribe({
       next: (response) => (this.products = response.data),
     });
-
-
   }
 
-
-
-// slider
+  // slider
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -38,11 +37,6 @@ export class HomeComponent implements OnInit {
     nav: false,
     autoplay: true,
     autoplayHoverPause: true,
-    
-    
-   
   };
   //- slider
-
-
 }
