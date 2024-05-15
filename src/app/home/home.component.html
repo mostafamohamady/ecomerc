@@ -26,9 +26,6 @@
 
 <input   [(ngModel)]="userWord" class=" w-50 mx-auto form-control" placeholder="Search product ...">
 
-<h1>{{userWord}}</h1>
-
-
 <div class="container">
   <div class="row">
     <div *ngFor="let product of products | search:userWord " class="col-md-2">
